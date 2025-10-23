@@ -30,7 +30,7 @@ const lastStatus = {};
 async function sendFailureEmail(url, reason) {
   await transporter.sendMail({
     from: `"Heroku Uptime Monitor" <${process.env.EMAIL_USER}>`,
-    to: "muk9298@gmail.com",
+    to: process.env.EMAIL_RECIEVER,
     subject: `🚨 App Down: ${url}`,
     html: `
       <h2>App Down Alert</h2>
