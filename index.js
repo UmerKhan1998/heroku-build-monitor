@@ -25,7 +25,6 @@ const transporter = nodemailer.createTransport({
 });
 
 // ✅ In-memory state cache (prevents duplicate alerts)
-const lastStatus = {};
 
 async function sendFailureEmail(url, reason) {
   await transporter.sendMail({
@@ -56,6 +55,10 @@ async function sendRecoveryEmail(url) {
   console.log(`📧 Recovery email sent for ${url}`);
 }
 
+const lastStatus = {};
+const lastEmailTime = {};
+const EMAIL_INTERVAL = 30 * 60 * 1000; // 30 minutes
+
 async function checkUptime() {
   console.log(`[${new Date().toISOString()}] Checking uptime...`);
 
@@ -71,23 +74,41 @@ async function checkUptime() {
         lastStatus[url] = "UP";
       } else {
         console.warn(`⚠️ ${url} returned ${res.status}`);
-        if (lastStatus[url] !== "DOWN") {
+        const now = Date.now();
+        if (
+          lastStatus[url] !== "DOWN" ||
+          !lastEmailTime[url] ||
+          now - lastEmailTime[url] > EMAIL_INTERVAL
+        ) {
           await sendFailureEmail(url, `Returned ${res.status}`);
+          lastEmailTime[url] = now;
         }
         lastStatus[url] = "DOWN";
       }
     } catch (err) {
       console.error(`❌ ${url} is DOWN: ${err.message}`);
-      if (lastStatus[url] !== "DOWN") {
+      const now = Date.now();
+      if (
+        lastStatus[url] !== "DOWN" ||
+        !lastEmailTime[url] ||
+        now - lastEmailTime[url] > EMAIL_INTERVAL
+      ) {
         await sendFailureEmail(url, err.message);
+        lastEmailTime[url] = now;
       }
       lastStatus[url] = "DOWN";
     }
   }
 }
 
-// 🕐 Run every 5 minutes
-cron.schedule("*/5 * * * *", checkUptime);
+console.log("🚀 Heroku Uptime Monitor started...");
 
-console.log("🚀 Heroku Uptime Monitor running every 5 minutes...");
-checkUptime(); // run immediately on startup
+// Run immediately
+(async () => {
+  await checkUptime();
+})();
+
+// Schedule every 5 minutes after that
+cron.schedule("*/5 * * * *", async () => {
+  await checkUptime();
+});
