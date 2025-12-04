@@ -29,7 +29,7 @@ const transporter = nodemailer.createTransport({
 async function sendFailureEmail(url, reason) {
   await transporter.sendMail({
     from: `"Heroku Uptime Monitor" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_RECIEVER,
+    to: ["support@sidr.productions", "ibad@digitalbee.studio"],
     subject: `🚨 App Down: ${url}`,
     html: `
       <h2>App Down Alert</h2>
