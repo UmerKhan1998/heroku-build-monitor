@@ -6,6 +6,7 @@ dotenv.config();
 
 // ✅ URLs to monitor
 const MONITORED_URLS = [
+  "https://school-journey-d80d29443185.herokuapp.com",
   "https://server-monitoring-004f594d63b2.herokuapp.com",
   "https://quran-journey-staging-4e781e6719ce.herokuapp.com/ping",
   "https://api.heroku.com/apps/your-app-name-1",
