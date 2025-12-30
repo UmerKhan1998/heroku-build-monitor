@@ -72,4 +72,4 @@ async function checkUptime() {
 
 console.log("🚀 Heroku Uptime Worker started...");
 checkUptime();
-cron.schedule("*/5 * * * *", checkUptime);
+cron.schedule("*/1 * * * *", checkUptime);
