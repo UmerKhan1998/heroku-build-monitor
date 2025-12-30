@@ -46,7 +46,7 @@ async function sendRecoveryEmail(url) {
 
 const lastStatus = {};
 const lastEmailTime = {};
-const EMAIL_INTERVAL = 5 * 60 * 1000;
+const EMAIL_INTERVAL = 1 * 60 * 1000;
 
 async function checkUptime() {
   console.log(`[${new Date().toISOString()}] Checking uptime...`);
