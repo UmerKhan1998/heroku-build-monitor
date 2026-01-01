@@ -9,25 +9,27 @@ const app = express();
 
 // URLs to monitor
 const MONITORED_URLS = [
-  "https://coworking-production-0f0eb9cd3ffa.herokuapp.com",
-  "https://digitalbee-manager-e0678a88a0bb.herokuapp.com",
+  // "https://coworking-production-0f0eb9cd3ffa.herokuapp.com",
+  // "https://digitalbee-manager-e0678a88a0bb.herokuapp.com",
+  // "https://quran-journey-6099f24a05db.herokuapp.com",
+  // "https://spaces-manager-production-20af1d9cf9d1.herokuapp.com",
+  // "https://academic-s3-39e259b9810d.herokuapp.com",
+  // "https://dubai-hire-86ed9af4d0d7.herokuapp.com",
+  // "https://hifztracker-a022b026f23c.herokuapp.com",
+  // "https://quran-connect-eb76b6fd1de3.herokuapp.com",
+
+  // "https://mqj-dev-9e61eb3bc492.herokuapp.com/api",
+  // "https://quran-journey-staging-4e781e6719ce.herokuapp.com",
+
   "https://kids-read-0200f571e14c.herokuapp.com",
   "https://mqj-notification-cron-da8b18ca2577.herokuapp.com",
   "https://msj-production-63c5484c576d.herokuapp.com",
-  "https://quran-journey-6099f24a05db.herokuapp.com",
-  "https://salah-tracker-e5332bfa9837.herokuapp.com",
-  "https://spaces-manager-production-20af1d9cf9d1.herokuapp.com",
-  "https://academic-s3-39e259b9810d.herokuapp.com",
+  "https://salah-tracker-e5332bfa9837.herokuapp.com/api",
   "https://alif-kids-staging-423e69b228fa.herokuapp.com",
-  "https://anf-dev-server-903cd9f18f9b.herokuapp.com",
-  "https://anf-server-6ba38e970bcd.herokuapp.com",
-  "https://dubai-hire-86ed9af4d0d7.herokuapp.com",
-  "https://hifztracker-a022b026f23c.herokuapp.com",
-  "https://mqj-dev-9e61eb3bc492.herokuapp.com",
+  "https://anf-dev-server-903cd9f18f9b.herokuapp.com/api",
+  "https://anf-server-6ba38e970bcd.herokuapp.com/api",
   "https://mqj-staging-notification-cron-30cf306c6136.herokuapp.com",
-  "https://quran-connect-eb76b6fd1de3.herokuapp.com",
-  "https://quran-journey-staging-4e781e6719ce.herokuapp.com",
-  "https://salah-tracker-dev-70afe4d97df5.herokuapp.com",
+  "https://salah-tracker-dev-70afe4d97df5.herokuapp.com/api",
 ];
 
 const transporter = nodemailer.createTransport({
