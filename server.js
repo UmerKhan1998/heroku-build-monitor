@@ -86,6 +86,6 @@ app.listen(PORT, () => {
   // Run initial check immediately
   checkUptime();
   // Schedule cron job to run every minute
-  cron.schedule("*/10 * * * * *", checkUptime);
+  cron.schedule("*/10 * * * *", checkUptime);
   console.log("✅ Cron job scheduled to run every minute");
 });
