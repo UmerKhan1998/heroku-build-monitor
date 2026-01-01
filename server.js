@@ -18,8 +18,8 @@ const MONITORED_URLS = [
   // "https://hifztracker-a022b026f23c.herokuapp.com",
   // "https://quran-connect-eb76b6fd1de3.herokuapp.com",
 
-  "https://mqj-dev-9e61eb3bc492.herokuapp.com/api",
-  "https://quran-journey-staging-4e781e6719ce.herokuapp.com/api",
+  "https://mqj-dev-9e61eb3bc492.herokuapp.com/ping",
+  "https://quran-journey-staging-4e781e6719ce.herokuapp.com/ping",
 
   "https://kids-read-0200f571e14c.herokuapp.com",
   "https://mqj-notification-cron-da8b18ca2577.herokuapp.com",
