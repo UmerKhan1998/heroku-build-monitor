@@ -14,13 +14,12 @@ const MONITORED_URLS = [
   // "https://quran-journey-6099f24a05db.herokuapp.com",
   // "https://spaces-manager-production-20af1d9cf9d1.herokuapp.com",
   // "https://academic-s3-39e259b9810d.herokuapp.com",
-  // "https://dubai-hire-86ed9af4d0d7.herokuapp.com",
+  "https://dubai-hire-86ed9af4d0d7.herokuapp.com",
   "https://hifztracker-a022b026f23c.herokuapp.com",
   "https://quran-connect-eb76b6fd1de3.herokuapp.com",
 
   "https://mqj-dev-9e61eb3bc492.herokuapp.com/ping",
   "https://quran-journey-staging-4e781e6719ce.herokuapp.com/ping",
-
   "https://kids-read-0200f571e14c.herokuapp.com",
   "https://mqj-notification-cron-da8b18ca2577.herokuapp.com",
   "https://msj-production-63c5484c576d.herokuapp.com",
@@ -100,6 +99,6 @@ app.listen(PORT, () => {
   // Run initial check immediately
   checkUptime();
   // Schedule cron job to run every minute
-  cron.schedule("*/5 * * * * *", checkUptime);
+  cron.schedule("*/20 * * * * *", checkUptime);
   console.log("✅ Cron job scheduled to run every minute");
 });
