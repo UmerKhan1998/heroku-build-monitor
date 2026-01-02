@@ -43,7 +43,8 @@ async function sendFailureEmail(url, reason) {
   await transporter.sendMail({
     from: `"Heroku Uptime Monitor" <${process.env.EMAIL_USER}>`,
     // to: ["support@sidr.productions", "ibad@digitalbee.studio"],
-    to: ["muk9298@gmail.com"],
+    to: ["ibad@digitalbee.studio"],
+    // to: ["muk9298@gmail.com"],
     subject: `🚨 App Down: ${url}`,
     html: `<h2>App Down Alert</h2><p><b>URL:</b> ${url}</p><p><b>Reason:</b> ${reason}</p>`,
   });
